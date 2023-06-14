@@ -107,7 +107,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), material);
 
 sphere.castShadow = true;
 
-const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), material);
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), new THREE.MeshBasicMaterial({map: bakedShadow}));
 plane.rotation.x = -Math.PI * 0.5;
 plane.position.y = -0.5;
 
