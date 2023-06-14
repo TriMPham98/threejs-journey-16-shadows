@@ -38,13 +38,16 @@ gui.add(directionalLight.position, "y").min(-5).max(5).step(0.001);
 gui.add(directionalLight.position, "z").min(-5).max(5).step(0.001);
 scene.add(directionalLight);
 
-const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 0.2);
+const directionalLightHelper = new THREE.DirectionalLightHelper(
+  directionalLight,
+  0.2
+);
 scene.add(directionalLightHelper);
 
 directionalLight.castShadow = false;
 
 directionalLight.shadow.mapSize.width = 1024;
-directionalLight.shadow.mapSize.height= 1024;
+directionalLight.shadow.mapSize.height = 1024;
 directionalLight.shadow.camera.top = 2;
 directionalLight.shadow.camera.right = 2;
 directionalLight.shadow.camera.bottom = -2;
@@ -53,7 +56,9 @@ directionalLight.shadow.camera.near = 1;
 directionalLight.shadow.camera.far = 6;
 // directionalLight.shadow.radius = 10;
 
-const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+const directionalLightCameraHelper = new THREE.CameraHelper(
+  directionalLight.shadow.camera
+);
 directionalLightCameraHelper.visible = false;
 scene.add(directionalLightCameraHelper);
 
@@ -62,7 +67,7 @@ const spotLight = new THREE.SpotLight(0xffffff, 0.3, 10, Math.PI * 0.3);
 
 spotLight.castShadow = false;
 spotLight.shadow.mapSize.width = 1024;
-spotLight.shadow.mapSize.height= 1024;
+spotLight.shadow.mapSize.height = 1024;
 spotLight.shadow.camera.fov = 30;
 spotLight.shadow.camera.near = 1.5;
 spotLight.shadow.camera.far = 6;
@@ -115,6 +120,15 @@ plane.position.y = -0.5;
 plane.receiveShadow = true;
 
 scene.add(sphere, plane);
+
+const sphereShadow = new THREE.Mesh(
+  new THREE.PlaneGeometry(1.5, 1.5),
+  new THREE.MeshBasicMaterial({
+    color: 0xff0000,
+  })
+);
+
+scene.add(sphereShadow);
 
 /**
  * Sizes
