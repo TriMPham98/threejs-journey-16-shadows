@@ -128,6 +128,8 @@ const sphereShadow = new THREE.Mesh(
   })
 );
 
+sphereShadow.rotation.x = -Math.PI * 0.5;
+sphereShadow.position.y = plane.position.y + 0.001;
 scene.add(sphereShadow);
 
 /**
