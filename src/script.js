@@ -69,6 +69,15 @@ const spotLightCameraHelper = new THREE.CameraHelper(spotLight.shadow.camera);
 spotLightCameraHelper.visible = false;
 scene.add(spotLightCameraHelper);
 
+// Point Light
+const pointLight = new THREE.PointLight(0xffffff, 0.3);
+
+pointLight.castShadow = true;
+
+pointLight.position.set(-1, 1, 0);
+
+scene.add(pointLight);
+
 /**
  * Materials
  */
